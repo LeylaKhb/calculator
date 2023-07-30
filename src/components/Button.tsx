@@ -4,7 +4,7 @@ import ButtonInterface from "./ButtonInterface";
 
 
 interface ButtonProps {
-    data: ButtonInterface;
+    children?: any,
     onClick?: (_action: any) => void;
 }
 
@@ -25,8 +25,8 @@ export default class Button extends React.Component<ButtonProps, ButtonState> {
             <div>
                 <button
                     onClick={(_e: React.MouseEvent<HTMLButtonElement>) => {
-                        //TODO;
-                    }}>+
+                        ;
+                    }}>{this.props.children}
                 </button>
             </div>);
     }
