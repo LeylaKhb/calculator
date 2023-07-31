@@ -22,6 +22,16 @@ export default class Calculator {
     set firstNumber(value: number) {
         this._firstNumber = value;
     }
+
+
+    get secondNumber(): number {
+        return this._secondNumber;
+    }
+
+    set secondNumber(value: number) {
+        this._secondNumber = value;
+    }
+
     private _firstNumber: number;
     private _secondNumber: number;
     private _operation: string;
@@ -37,28 +47,28 @@ export default class Calculator {
         let text = document.querySelector('.text-result');
         if (text === null) return;
         if (text.textContent === null) return;
-        let res = 0;
-        switch (this.operation) {
+        this._result = 0;
+        switch (this._operation) {
             case '+': {
-                res = this._firstNumber + this._secondNumber;
+                this._result = this._firstNumber + this._secondNumber;
                 break;
             }
             case '-': {
-                res = this._firstNumber - this._secondNumber;
+                this._result = this._firstNumber - this._secondNumber;
                 break;
             }
             case '/': {
-                res = this._firstNumber / this._secondNumber;
+                this._result = this._firstNumber / this._secondNumber;
                 break;
             }
             case '*': {
-                res = this._firstNumber * this._secondNumber;
+                this._result = this._firstNumber * this._secondNumber;
                 break;
             }
         }
-        this._firstNumber = res;
+        this._firstNumber = this._result;
         this._secondNumber = 0;
-        return res;
+        return this._result;
     }
 
     changeFirstNumber(newNumber: number) {
@@ -69,4 +79,10 @@ export default class Calculator {
         this._secondNumber = this._secondNumber * 10 + newNumber;
     }
 
+    clear() {
+        this._firstNumber = 0;
+        this._result = 0;
+        this._secondNumber = 0;
+        this._operation = '';
+    }
 }

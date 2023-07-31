@@ -26,28 +26,33 @@ export default class Button extends React.Component<ButtonProps, ButtonState> {
             <div>
                 <button
                     onClick={(_e: React.MouseEvent<HTMLButtonElement>) => {
+                        let calculator = me.props.calc;
                         let text = document.querySelector('.text-result');
                         if (text === null) return;
                         if (text.textContent === null) return;
                         if (me.props.number || me.props.number == 0) {
-                            if (me.props.calc.operation === '') {
-                                me.props.calc.changeFirstNumber(me.props.number);
-                            } else {
-                                me.props.calc.changeSecondNumber(me.props.number);
+                            if ((calculator.firstNumber === calculator.result)) {
+                                text.textContent = '';
+                                calculator.firstNumber = 0;
                             }
-                            if (text.textContent == '' && me.props.number == 0) {
-                                return;
-                            }
+                            if (calculator.operation === '') calculator.changeFirstNumber(me.props.number);
+                            else calculator.changeSecondNumber(me.props.number);
+
+                            if (text.textContent == '' && me.props.number == 0) return;
                             text.textContent += me.props.number;
                         }
                         if (me.props.operation) {
                             text.textContent = '';
-                            me.props.calc.operation = me.props.operation;
+                            calculator.operation = me.props.operation;
                         }
                         if (me.props.equals) {
-                            let res = me.props.calc.count();
-                            me.props.calc.operation = '';
+                            let res = calculator.count();
+                            calculator.operation = '';
                             text.textContent = res === undefined ? null : res.toString();
+                        }
+                        if (me.props.clear) {
+                            text.textContent = '';
+                            calculator.clear();
                         }
                     }}>{this.props.children}
                 </button>
