@@ -1,0 +1,11 @@
+button {
+  color: teal;
+  border: solid teal;
+  width: 50px;
+  height: 50px;
+  margin: 0 10px 10px 0;
+  float: left;
+  font-size: 20px;
+}
+
+/*# sourceMappingURL=button.css.map */

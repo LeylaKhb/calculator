@@ -1,12 +1,12 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Button from "./components/Button";
+import CalcFrame from "./components/calculator_frame/CalcFrame";
+import Calculator from "./services/Calculator";
 
 function App() {
   return (
       <div>
-        <Button>1</Button>
+          <CalcFrame calc={new Calculator()}></CalcFrame>
       </div>
   );
 }
