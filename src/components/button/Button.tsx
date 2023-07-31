@@ -27,19 +27,20 @@ export default class Button extends React.Component<ButtonProps, ButtonState> {
                 <button
                     onClick={(_e: React.MouseEvent<HTMLButtonElement>) => {
                         let calculator = me.props.calc;
+                        let number = me.props.number;
                         let text = document.querySelector('.text-result');
                         if (text === null) return;
                         if (text.textContent === null) return;
-                        if (me.props.number || me.props.number == 0) {
+                        if (number || number == 0) {
                             if ((calculator.firstNumber === calculator.result)) {
                                 text.textContent = '';
                                 calculator.firstNumber = 0;
                             }
-                            if (calculator.operation === '') calculator.changeFirstNumber(me.props.number);
-                            else calculator.changeSecondNumber(me.props.number);
+                            if (calculator.operation === '') calculator.changeFirstNumber(number);
+                            else calculator.changeSecondNumber(number);
 
-                            if (text.textContent == '' && me.props.number == 0) return;
-                            text.textContent += me.props.number;
+                            if (text.textContent == '' && number == 0) return;
+                            text.textContent += number;
                         }
                         if (me.props.operation) {
                             text.textContent = '';

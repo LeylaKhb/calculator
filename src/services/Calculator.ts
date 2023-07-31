@@ -59,6 +59,8 @@ export default class Calculator {
             }
             case '/': {
                 this._result = this._firstNumber / this._secondNumber;
+                if (this._result.toString().length > 10)
+                    this._result = +(this._result.toString().slice(0,10));
                 break;
             }
             case '*': {
