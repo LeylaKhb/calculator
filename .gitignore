@@ -24,6 +24,7 @@ yarn-error.log*
 
 /.idea
 .idea
-/^[a-z0-9].css$
-/^[a-z0-9].css.map$
-/*.css
+/src/components/calculator_frame/^[a-z0-9].css$
+/src/components/calculator_frame/^[a-z0-9].css.map$
+/src/components/calculator_frame/*.css
+
