@@ -3,7 +3,7 @@ import Button from "../button/Button";
 import "./num-frame.scss";
 import "./calc-frame.scss";
 import "./text-result.scss";
-import Calculator from "../../services/Calculator";
+import Calculator from "../../models/Calculator";
 
 interface CalcFrameProps {
     calc: Calculator;

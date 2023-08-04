@@ -24,3 +24,5 @@ yarn-error.log*
 
 /.idea
 .idea
+src/components/calculator_frame/*.css
+src/components/calculator_frame/*.css.map

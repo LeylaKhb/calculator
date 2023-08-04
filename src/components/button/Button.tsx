@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import "./button.scss";
-import Calculator from "../../services/Calculator";
+import Calculator from "../../models/Calculator";
 
 
 interface ButtonProps {
